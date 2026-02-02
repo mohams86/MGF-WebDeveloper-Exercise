@@ -1,0 +1,43 @@
+version: "3.9"
+
+networks:
+  default:
+
+volumes:
+  db:
+
+services:
+  nginx:
+    build: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./backend:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+  php:
+    build: php
+    networks:
+      - default
+    volumes:
+      - ./backend:/var/www/html
+
+  db:
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+
+  node:
+    image: node:18
+    working_dir: /var/www/html/frontend
+    volumes:
+      - ./frontend:/var/www/html
+    # command: sh -c "npm install && npm run start"
+    ports:
+      - "4200:4200"
+    command: npx ng serve --host 0.0.0.0 --port 4200
+

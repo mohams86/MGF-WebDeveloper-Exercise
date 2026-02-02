@@ -1,27 +1,72 @@
-/vendor/
+# ================================
+# Laravel backend
+# ================================
+/backend/vendor/
+/backend/node_modules/
+/backend/public/hot
+/backend/public/storage
+/backend/storage/*.key
+/backend/.env
+/backend/.env.*.backup
+/backend/.phpunit.result.cache
+/backend/.idea/
+/backend/*.log
+/backend/*.sqlite
+
+# ================================
+# Angular frontend
+# ================================
+/frontend/node_modules/
+/frontend/dist/
+/frontend/out-tsc/
+/frontend/coverage/
+/frontend/.angular/cache/
+/frontend/*.js
+/frontend/*.js.map
+/frontend/*.tsbuildinfo
+/frontend/.idea/
+/frontend/.vscode/
+
+# ================================
+# OS / IDE files
+# ================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# ================================
+# Docker overrides
+# ================================
+/docker-compose.override.yml
+/docker-compose.override.yaml
+
+# ================================
+# Database files
+# ================================
+/db/mysql/
+
+# ================================
+# Misc old Laravel files
+# ================================
+vendor/
 node_modules/
 npm-debug.log
 yarn-error.log
-
-# Laravel 4 specific
 bootstrap/compiled.php
 app/storage/
-
-# Laravel 5 & Lumen specific
 public/storage
 public/hot
-
-# Laravel 5 & Lumen specific with changed public path
 public_html/storage
 public_html/hot
-
 storage/*.key
 .env
 Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-
 /public/build
 /storage/pail
 .env.backup

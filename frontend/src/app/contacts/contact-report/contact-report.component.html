@@ -1,0 +1,12 @@
+<h2>Contacts by Area</h2>
+
+<table border="1" cellspacing="0" cellpadding="5">
+  <tr>
+    <th>Area (Postcode)</th>
+    <th>Number of Contacts</th>
+  </tr>
+  <tr *ngFor="let row of data">
+    <td>{{ row.area }}</td>
+    <td>{{ row.total }}</td>
+  </tr>
+</table>

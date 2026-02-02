@@ -1,0 +1,218 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form {
+  max-width: 500px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+input {
+  padding: 8px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #155fa0;
+}
+
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #cfcfcf;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between ALL items */
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  height: 38px;
+  box-sizing: border-box;
+}
+
+select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+/*.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-4 {
+  width: 33.333%;
+}
+
+.col-3 {
+  width: 25%;
+}*/
+
+.form-control {
+  width: 100%;
+  max-width: 350px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table th,
+.table td {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.table thead {
+  background-color: #f4f6f8;
+}
+
+.table th {
+  font-weight: 800;
+  font-size: 16px;
+  color: #444;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect */
+.table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+/* Actions column */
+.table .actions {
+  white-space: nowrap;
+}
+
+.btn {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-sm {
+  font-size: 12px;
+}
+
+.btn-primary {
+  background: #0d6efd;
+  color: #fff;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn + .btn {
+  margin-left: 6px;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+
+.empty {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
+
+th.sortable {
+  cursor: pointer;
+  user-select: none;
+
+}
+
+.sort-indicator {
+  margin-left: 8px;
+  font-size: 1.2em;          /* increase arrow size */
+  opacity: 1;
+  vertical-align: middle;
+}
+
+.sort-indicator.active {
+  opacity: 1;
+  font-weight: 700;
+  font-size: 1.1em;        /* active arrow slightly bigger */
+}
+
+th.sortable:hover {
+  color: #0d6efd;          /* bootstrap primary blue */
+}
+
+th.sortable:hover .sort-indicator {
+  opacity: 0.8;
+}

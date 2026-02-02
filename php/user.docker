@@ -1,0 +1,8 @@
+
+ARG UNAME=devuser
+ARG UID=1003
+ARG GID=1003
+RUN groupadd -g $GID -o $UNAME
+RUN useradd -m -u $UID -g $GID -o -s /bin/bash $UNAME
+USER $UNAME
+

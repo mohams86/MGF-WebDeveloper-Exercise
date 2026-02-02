@@ -1,0 +1,71 @@
+<div class="header">
+  <h2>Contacts</h2>
+  <a class="btn btn-primary" [routerLink]="['/reports/contacts-by-area']">
+    Report
+  </a>
+  <a class="btn btn-primary" [routerLink]="['/contacts/new']">
+    ➕ Add Contact
+  </a>
+</div>
+
+<input placeholder="Search" [(ngModel)]="search" (input)="loadContacts()" class="form-control"/>
+
+<br/><br/>
+<table class="table">
+  <thead>
+  <tr>
+    <th (click)="sortBy('firstname')" class="sortable">
+      First Name
+      <span class="sort-indicator"
+            [class.active]="sort === 'firstname'">
+    {{ sort === 'firstname' ? (direction === 'asc' ? '▲' : '▼') : '⇅' }}
+  </span>
+    </th>
+    <th (click)="sortBy('lastname')" class="sortable">
+      Last Name
+      <span class="sort-indicator"
+            [class.active]="sort === 'lastname'">
+    {{ sort === 'lastname' ? (direction === 'asc' ? '▲' : '▼') : '⇅' }}
+  </span>
+    </th>
+    <th (click)="sortBy('email')" class="sortable">
+      Email
+      <span class="sort-indicator"
+            [class.active]="sort === 'email'">
+    {{ sort === 'email' ? (direction === 'asc' ? '▲' : '▼') : '⇅' }}
+  </span>
+    </th>
+    <th>Company</th>
+    <th class="actions">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let c of contacts">
+    <td>{{ c.firstname }}</td>
+    <td>{{ c.lastname }}</td>
+    <td>{{ c.email }}</td>
+    <td>{{ c.company?.name }}</td>
+    <td class="actions">
+      <button class="btn btn-sm btn-primary" [routerLink]="['/contacts/edit', c.id]">Edit</button>
+      <button class="btn btn-sm btn-danger" (click)="delete(c.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<br/>
+<div class="pagination">
+  <button
+    (click)="loadContacts(currentPage - 1)"
+    [disabled]="currentPage === 1">
+    Previous
+  </button>
+
+  <span>Page {{ currentPage }} of {{ lastPage }}</span>
+
+  <button
+    (click)="loadContacts(currentPage + 1)"
+    [disabled]="currentPage === lastPage">
+    Next
+  </button>
+</div>

@@ -1,0 +1,62 @@
+<h2>{{ isEdit ? 'Edit' : 'Add' }} Contact</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <!-- First Name -->
+  <div class="form-group">
+    <label for="firstname">First Name</label>
+    <input id="firstname" type="text" formControlName="firstname" placeholder="First name" />
+    <div class="error" *ngIf="f['firstname'].touched && f['firstname'].invalid">
+      First name is required
+    </div>
+  </div>
+
+  <!-- Last Name -->
+  <div class="form-group">
+    <label for="lastname">Last Name</label>
+    <input id="lastname" type="text" formControlName="lastname" placeholder="Last name" />
+    <div class="error" *ngIf="f['lastname'].touched && f['lastname'].invalid">
+      Last name is required
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" placeholder="Email" />
+    <div class="error" *ngIf="f['email'].touched && f['email'].errors">
+      <div *ngIf="f['email'].errors['required']">
+        Email is required
+      </div>
+      <div *ngIf="f['email'].errors['email']">
+        Invalid email format
+      </div>
+      <div *ngIf="f['email'].errors['backend']">
+        {{ f['email'].errors['backend'] }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Company ID -->
+  <div class="form-group">
+    <label for="company_id">Company ID</label>
+    <select formControlName="company_id" id="company_id" class="form-control">
+      <option value="">Select Company</option>
+      <option *ngFor="let c of companies" [value]="c.id">{{ c.name }}</option>
+    </select>
+    <div class="error" *ngIf="f['company_id'].touched && f['company_id'].invalid">
+      Company is required
+    </div>
+  </div>
+
+  <!-- Server error -->
+  <div class="error" *ngIf="serverError">{{ serverError }}</div>
+
+  <div style="display: flex; gap: 8px;">
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Saving...' : 'Save' }}
+    </button>
+    <button type="button" [routerLink]="['/contacts']">
+      Cancel
+    </button>
+  </div>
+</form>
